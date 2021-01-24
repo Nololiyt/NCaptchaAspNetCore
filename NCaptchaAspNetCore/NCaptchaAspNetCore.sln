@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptchaAspNetCore", "NCaptchaAspNetCore\NCaptchaAspNetCore.csproj", "{458AEA1A-0365-4B17-A4D7-58CCFAB184A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptchaAspNetCore", "NCaptchaAspNetCore\NCaptchaAspNetCore.csproj", "{458AEA1A-0365-4B17-A4D7-58CCFAB184A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{6B02CA31-A178-46CA-BADC-71A805F6BE7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{6B02CA31-A178-46CA-BADC-71A805F6BE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base64ToFile", "Base64ToFile\Base64ToFile.csproj", "{33D54330-1E53-4A11-9A2A-ACCC25D5502A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6B02CA31-A178-46CA-BADC-71A805F6BE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B02CA31-A178-46CA-BADC-71A805F6BE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B02CA31-A178-46CA-BADC-71A805F6BE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33D54330-1E53-4A11-9A2A-ACCC25D5502A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D54330-1E53-4A11-9A2A-ACCC25D5502A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D54330-1E53-4A11-9A2A-ACCC25D5502A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D54330-1E53-4A11-9A2A-ACCC25D5502A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

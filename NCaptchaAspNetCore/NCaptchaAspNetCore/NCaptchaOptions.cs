@@ -25,6 +25,9 @@ namespace Nololiyt.NCaptchaExtensions.AspNetCore
                         "A captcha factory should have a ticket factory.", e);
             }
         }
+        /// <summary>
+        /// Set the captcha factory.
+        /// </summary>
         public ICaptchaFactory<TCaptchaDisplay, TAnswer> Factory { internal get; set; } = null!;
     }
 }

@@ -6,6 +6,16 @@ namespace Nololiyt.NCaptchaExtensions.AspNetCore
 {
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Add a NCaptcha service.
+        /// </summary>
+        /// <typeparam name="TCaptchaDisplay">Type of captcha display.</typeparam>
+        /// <typeparam name="TAnswer">Type of captcha answer.</typeparam>
+        /// <param name="services">The service collection.</param>
+        /// <param name="setupAction">The setup action.</param>
+        /// <returns>The service collection.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="services"/> or <paramref name="setupAction"/> is <c>null</c>.</exception>
+        /// <exception cref="NCaptchaServiceAddException">Something is invalid.</exception>
         public static IServiceCollection AddNCaptcha<TCaptchaDisplay, TAnswer>(
             this IServiceCollection services,
             Action<NCaptchaOptions<TCaptchaDisplay, TAnswer>> setupAction)

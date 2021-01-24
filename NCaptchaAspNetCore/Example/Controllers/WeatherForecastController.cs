@@ -17,10 +17,10 @@ namespace Example.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+#warning A tip here: You don't need a captcha factory in your service controllers. Just a ticket factory to verify.
         private readonly ITicketFactory ticketFactory;
 
-        public WeatherForecastController(
-            ITicketFactory ticketFactory)
+        public WeatherForecastController(ITicketFactory ticketFactory)
         {
             this.ticketFactory = ticketFactory;
         }

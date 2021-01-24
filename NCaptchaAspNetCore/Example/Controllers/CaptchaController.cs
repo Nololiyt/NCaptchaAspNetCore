@@ -16,11 +16,10 @@ namespace Example.Controllers
     [Route("[controller]")]
     public class CaptchaController : ControllerBase
     {
+#warning A tip here: A captcha factory to produce captcha.
         private readonly ICaptchaFactory<Bitmap, string> captchaFactory;
 
-        public CaptchaController(
-            ILogger<WeatherForecastController> logger,
-            ICaptchaFactory<Bitmap, string> captchaFactory)
+        public CaptchaController(ICaptchaFactory<Bitmap, string> captchaFactory)
         {
             this.captchaFactory = captchaFactory;
         }
@@ -32,11 +31,12 @@ namespace Example.Controllers
             using var memory = new MemoryStream();
             using (r.Display)
                 r.Display.Save(memory, ImageFormat.Png);
+#warning A tip here: Now it's in png format. You can customize it.
             return new KeyValuePair<string, byte[]>(r.Id, memory.ToArray());
         }
 
         [HttpPost]
-        public async Task<string> GetTicket(StringPair idAndAnswer)
+        public async Task<string> GetTicket([FromBody]StringPair idAndAnswer)
         {
             return await this.captchaFactory.VerifyAndGetTicketAsync(idAndAnswer.Key, idAndAnswer.Value)
                 .ConfigureAwait(false);
