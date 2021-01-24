@@ -29,7 +29,8 @@ namespace Example
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example", Version = "v1" });
             });
 
-#warning A tip here: Here shows how to read 'appsettings.json' to add the service.
+#warning Tip 1: Add Service
+            // Here shows how to read 'appsettings.json' to add the service.
             // You can customize the factories and the saver.
             var settings = this.Configuration.GetSection("NCaptcha").Get<NCaptchaSettings>();
             var factorySettings = settings.AllowedCharacters == null

@@ -12,7 +12,8 @@ namespace Example.Controllers
     [Route("[controller]")]
     public class CaptchaController : ControllerBase
     {
-#warning A tip here: You need a captcha factory here to produce captcha.
+#warning Tip 2: Captcha Factory Here
+        // You need a captcha factory to produce captcha here.
         private readonly ICaptchaFactory<Bitmap, string> captchaFactory;
 
         public CaptchaController(ICaptchaFactory<Bitmap, string> captchaFactory)
@@ -23,20 +24,19 @@ namespace Example.Controllers
         [HttpGet]
         public async Task<KeyValuePair<string, byte[]>> New()
         {
+#warning Tip 3: Conversion Logics Needed
+            // Response is in png format currently because of the conversion logics here.
+            // And different captcha factories may also need different conversion logics.
             var r = await this.captchaFactory.GenerateNewAsync().ConfigureAwait(false);
             using var memory = new MemoryStream();
             using (r.Display)
                 r.Display.Save(memory, ImageFormat.Png);
-#warning A tip here: The response in png format currently.
-            // You can easily customize it. 
-            // And use different captcha factories may also need different conversions here.
             return new KeyValuePair<string, byte[]>(r.Id, memory.ToArray());
         }
 
         [HttpPost]
         public async Task<string?> GetTicket([FromBody] StringPair idAndAnswer)
         {
-            // Use different captcha factories will also need different conversions here.
             return await this.captchaFactory.VerifyAndGetTicketAsync(idAndAnswer.Key, idAndAnswer.Value)
                 .ConfigureAwait(false);
         }

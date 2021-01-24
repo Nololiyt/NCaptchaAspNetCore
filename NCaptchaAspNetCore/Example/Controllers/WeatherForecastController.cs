@@ -14,7 +14,8 @@ namespace Example.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-#warning A tip here: Just a ticket factory to verify is enough.
+#warning Tip 4: Ticket Factory Only
+        // A ticket factory alone is enough to verify tickets.
         // You don't need a captcha factory in your service controllers. 
         private readonly ITicketFactory ticketFactory;
 

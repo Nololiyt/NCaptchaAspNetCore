@@ -3,11 +3,12 @@ using System.IO;
 
 namespace Base64ToFile
 {
-#warning A tip here: This tool may help when debugging.
     internal class Program
     {
         private static void Main(string[] args)
         {
+#warning Tip 5: A Tool Here.
+            // This tool may help when debugging.
             try
             {
                 for (; ; )
