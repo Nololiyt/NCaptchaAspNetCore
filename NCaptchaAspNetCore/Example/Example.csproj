@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" NoWarn="NU1605" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.2" NoWarn="NU1605" />
     <PackageReference Include="Nololiyt.Captcha.AnswerSavers.InMemoryGuidDictionary" Version="3.0.0" />
     <PackageReference Include="Nololiyt.Captcha.CaptchaFactories.Image" Version="2.0.0" />
     <PackageReference Include="Nololiyt.Captcha.TicketFactories.InMemoryGuidDictionary" Version="1.0.2" />

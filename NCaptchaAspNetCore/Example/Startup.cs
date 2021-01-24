@@ -35,13 +35,20 @@ namespace Example
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example", Version = "v1" });
             });
 
-#warning A tip here: Add the service.
+#warning A tip here: Add the service here.
             services.AddNCaptcha<Bitmap, string>((options) =>
             {
+                // You can customize the factories and the saver.
+
                 options.Factory = new ImageCaptchaFactory(
+                    // ImageCaptchaFactory: In Nololiyt.Captcha.CaptchaFactories.Image
                     new GuidDictionaryStringAnswerSaver(new TimeSpan(0, 10, 0)),
+                    // GuidDictionaryStringAnswerSaver: In Nololiyt.Captcha.AnswerSavers.InMemoryGuidDictionary
                     new GuidDictionaryTicketFactory(new TimeSpan(0, 10, 0)),
-                    new ImageCaptchaFactory.Settings(), true);
+                    // GuidDictionaryTicketFactory: In Nololiyt.Captcha.TicketFactories.InMemoryGuidDictionary
+                    new ImageCaptchaFactory.Settings(),
+                    // Here we use the default settings.
+                    true);
             });
         }
 

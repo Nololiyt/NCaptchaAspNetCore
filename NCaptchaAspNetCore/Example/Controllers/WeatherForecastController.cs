@@ -17,7 +17,8 @@ namespace Example.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-#warning A tip here: You don't need a captcha factory in your service controllers. Just a ticket factory to verify.
+#warning A tip here: Just a ticket factory to verify is enough.
+        // You don't need a captcha factory in your service controllers. 
         private readonly ITicketFactory ticketFactory;
 
         public WeatherForecastController(ITicketFactory ticketFactory)

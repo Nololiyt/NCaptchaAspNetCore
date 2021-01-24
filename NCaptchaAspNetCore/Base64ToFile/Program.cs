@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Base64ToFile
 {
-#warning A tip here: This tools may help.
+#warning A tip here: This tool may help when debugging.
     class Program
     {
         static void Main(string[] args)
