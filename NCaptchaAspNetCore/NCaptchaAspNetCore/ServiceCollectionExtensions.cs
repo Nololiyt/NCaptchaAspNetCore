@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nololiyt.Captcha.Interfaces;
 using System;
 
 namespace Nololiyt.NCaptchaExtensions.AspNetCore

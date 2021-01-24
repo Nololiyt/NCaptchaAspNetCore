@@ -1,20 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Nololiyt.Captcha.AnswerSavers.InMemoryGuidDictionary;
 using Nololiyt.Captcha.CaptchaFactories.Image;
 using Nololiyt.Captcha.TicketFactories.InMemoryGuidDictionary;
 using Nololiyt.NCaptchaExtensions.AspNetCore;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Example
 {
@@ -35,20 +29,20 @@ namespace Example
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example", Version = "v1" });
             });
 
-#warning A tip here: Add the service here.
+#warning A tip here: Here shows how to read 'appsettings.json' to add the service.
+            // You can customize the factories and the saver.
+            var settings = this.Configuration.GetSection("NCaptcha").Get<NCaptchaSettings>();
+            var factorySettings = settings.AllowedCharacters == null
+                ? new ImageCaptchaFactory.Settings()
+                : new ImageCaptchaFactory.Settings() {
+                    AllowedCharacters = settings.AllowedCharacters
+                };
             services.AddNCaptcha<Bitmap, string>((options) =>
             {
-                // You can customize the factories and the saver.
-
                 options.Factory = new ImageCaptchaFactory(
-                    // ImageCaptchaFactory: In Nololiyt.Captcha.CaptchaFactories.Image
-                    new GuidDictionaryStringAnswerSaver(new TimeSpan(0, 10, 0)),
-                    // GuidDictionaryStringAnswerSaver: In Nololiyt.Captcha.AnswerSavers.InMemoryGuidDictionary
-                    new GuidDictionaryTicketFactory(new TimeSpan(0, 10, 0)),
-                    // GuidDictionaryTicketFactory: In Nololiyt.Captcha.TicketFactories.InMemoryGuidDictionary
-                    new ImageCaptchaFactory.Settings(),
-                    // Here we use the default settings.
-                    true);
+                    new GuidDictionaryStringAnswerSaver(settings.ConvertedAnswersLifeTime),
+                    new GuidDictionaryTicketFactory(settings.ConvertedTicketsLifeTime),
+                    settings: factorySettings, disposeSaverAndFactory: true);
             });
         }
 

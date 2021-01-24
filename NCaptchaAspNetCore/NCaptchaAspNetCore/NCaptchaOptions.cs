@@ -1,9 +1,5 @@
 ﻿using Nololiyt.Captcha.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nololiyt.NCaptchaExtensions.AspNetCore
 {
@@ -16,15 +12,15 @@ namespace Nololiyt.NCaptchaExtensions.AspNetCore
     {
         internal void CheckAndThrow()
         {
-            if (Factory == null)
+            if (this.Factory == null)
                 throw new NCaptchaServiceAddException("A captcha factory is required.");
             try
             {
-                if (Factory.TicketFactory == null)
+                if (this.Factory.TicketFactory == null)
                     throw new NCaptchaServiceAddException(
                         "A captcha factory should have a ticket factory.");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new NCaptchaServiceAddException(
                         "A captcha factory should have a ticket factory.", e);

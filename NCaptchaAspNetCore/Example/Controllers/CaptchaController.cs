@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Nololiyt.Captcha.Interfaces;
-using Nololiyt.Captcha.Interfaces.Entities;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Example.Controllers
@@ -38,7 +34,7 @@ namespace Example.Controllers
         }
 
         [HttpPost]
-        public async Task<string> GetTicket([FromBody]StringPair idAndAnswer)
+        public async Task<string?> GetTicket([FromBody] StringPair idAndAnswer)
         {
             // Use different captcha factories will also need different conversions here.
             return await this.captchaFactory.VerifyAndGetTicketAsync(idAndAnswer.Key, idAndAnswer.Value)

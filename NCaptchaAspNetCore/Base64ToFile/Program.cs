@@ -4,9 +4,9 @@ using System.IO;
 namespace Base64ToFile
 {
 #warning A tip here: This tool may help when debugging.
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace Base64ToFile
                     Console.WriteLine();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
