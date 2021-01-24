@@ -4,6 +4,19 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Nololiyt.NCaptchaExtensions.AspNetCore</RootNamespace>
     <Nullable>enable</Nullable>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Nololiyt.NCaptchaExtensions.AspNetCore</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>yueyinqiu5990</Authors>
+    <Company>Nololiyt</Company>
+    <Description>An extension library of NCaptcha.</Description>
+    <Copyright>©2021 Nololiyt</Copyright>
+    <PackageProjectUrl>https://github.com/Nololiyt/NCaptchaAspNetCore/wiki</PackageProjectUrl>
+    <Product>NCaptchaAspNetCore</Product>
+    <RepositoryUrl>https://github.com/Nololiyt/NCaptchaAspNetCore.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>NCaptcha</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

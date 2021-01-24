@@ -4,6 +4,9 @@ using System;
 
 namespace Nololiyt.NCaptchaExtensions.AspNetCore
 {
+    /// <summary>
+    /// Extensions for <see cref="IServiceCollection"/>.
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
         /// <summary>

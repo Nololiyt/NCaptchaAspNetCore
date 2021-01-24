@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace Nololiyt.NCaptchaExtensions.AspNetCore
 {
+    /// <summary>
+    /// Options of NCaptcha services.
+    /// </summary>
+    /// <typeparam name="TCaptchaDisplay">Type of captcha display.</typeparam>
+    /// <typeparam name="TAnswer">Type of captcha answer.</typeparam>
     public class NCaptchaOptions<TCaptchaDisplay, TAnswer>
     {
         internal void CheckAndThrow()
